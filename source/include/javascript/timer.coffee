@@ -1,21 +1,21 @@
-# clearInterval(fn: Function | string): void
-clearInterval = (fn) ->
-  unless fn then return
-  `SetTimer, % fn, Delete`
+# clearInterval(callback: Function): void
+clearInterval = (callback) ->
+  `SetTimer, % callback, Delete`
 
-# clearTimeout(fn: Function | string): void
-clearTimeout = (fn) ->
-  unless fn then return
-  `SetTimer, % fn, Delete`
+# clearTimeout(callback: Function): void
+clearTimeout = (callback) ->
+  `SetTimer, % callback, Delete`
 
-# setInterval(fn: Function | string, time: number): string
-setInterval = (fn, time = 0) ->
-  unless fn then return fn
-  `SetTimer, % fn, % time`
-  return fn
+# setInterval(callback: Function, time: number): string
+setInterval = (callback, time) ->
+  if ($.type callback) == 'function'
+    callback = callback.Bind()
+  `SetTimer, % callback, % time`
+  return callback
 
-# setTimeout(fn: Function | string, time: number): string
-setTimeout = (fn, time = 0) ->
-  unless fn then return fn
-  `SetTimer, % fn, % 0 - time`
-  return fn
+# setTimeout(callback: Function, time: number): string
+setTimeout = (callback, time) ->
+  if ($.type callback) == 'function'
+    callback = callback.Bind()
+  `SetTimer, % callback, % 0 - time`
+  return callback

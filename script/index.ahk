@@ -1,4 +1,5 @@
-﻿global __ctx_toolkit__ := {}
+﻿global __ctx_z__ := {}
+global __ctx_toolkit__ := {}
 global $ := {}
 $.reverse := Func("toolkit_44") ; reverse(input: unknown[]): unknown[]
 $.includes := Func("toolkit_43")
@@ -385,4 +386,11 @@ toolkit_44(input) {
     _output[_len - i + 1] := key
   }
   return _output
+}
+
+$.on.Call("f1", Func("z_1"))
+z_1() {
+  for __i__, i in [1, 2, 3, 4, 5] {
+    setTimeout.Call(alert.Bind(i), i * 1000)
+  }
 }

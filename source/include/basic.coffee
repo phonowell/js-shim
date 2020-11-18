@@ -19,11 +19,14 @@ $.length = (input) ->
     when 'string' then return StrLen input
     else throw new Error "$.length: invalid type '#{_type}'"
 
-# type(input: unknown): 'array' | 'number' | 'object' | 'string'
+# type(input: unknown): 'array' | 'function' | 'number' | 'object' | 'string'
 $.type = (input) ->
 
   `if input is Number`
   `  return "number"`
+
+  if IsFunc input
+    return 'function'
 
   if IsObject input
     if input.Count() == input.Length()

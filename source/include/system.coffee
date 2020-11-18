@@ -1,15 +1,20 @@
+# delay(time: number, callback: Function): string
+$.delay = (time, callback) ->
+  __timer__ = setTimeout callback, time
+  return __timer__
+
 # exit(): void
 $.exit = -> ExitApp
 
-# off(key: string, fn: Function | string): void
-$.off = (key, fn) ->
+# off(key: string, callback: Function): void
+$.off = (key, callback) ->
   key = $.formatHotkey key
-  `Hotkey, % key, % fn, Off`
+  `Hotkey, % key, % callback, Off`
 
-# on(key, string, fn: Function | string): void
-$.on = (key, fn) ->
+# on(key, string, callback: Function): void
+$.on = (key, callback) ->
   key = $.formatHotkey key
-  `Hotkey, % key, % fn, On`
+  `Hotkey, % key, % callback, On`
 
 # open(source: string): void
 $.open = (source) -> `Run, % source`

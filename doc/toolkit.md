@@ -16,7 +16,7 @@ type Point = [number, number]
 
 ### length(input: string | array | object): number
 
-### type(input: unknown): 'array' | 'number' | 'object' | 'string'
+### type(input: unknown): 'array' | 'function' | 'number' | 'object' | 'string'
 
 ## finder
 
@@ -76,11 +76,13 @@ type Point = [number, number]
 
 ## system
 
+### delay(time: number, callback: Function): string
+
 ### exit(): void
 
-### off(key: string, fn: Function): void
+### off(key: string, callback: Function): void
 
-### on(key, string, fn: Function): void
+### on(key, string, callback: Function): void
 
 ### open(source: string): void
 
@@ -106,10 +108,10 @@ type Point = [number, number]
 
 ## timer
 
-### clearInterval(fn: Function): void
+### clearInterval(callback: Function): void
 
-### clearTimeout(fn: Function): void
+### clearTimeout(callback: Function): void
 
-### setInterval(fn: Function, time: number): Function
+### setInterval(callback: Function, time: number): string
 
-### setTimeout(fn: Function, time: number): Function
+### setTimeout(callback: Function, time: number): string
