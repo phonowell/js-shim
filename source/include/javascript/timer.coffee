@@ -1,9 +1,11 @@
 # clearInterval(callback: Function): void
 clearInterval = (callback) ->
+  unless callback then return
   `SetTimer, % callback, Delete`
 
 # clearTimeout(callback: Function): void
 clearTimeout = (callback) ->
+  unless callback then return
   `SetTimer, % callback, Delete`
 
 # setInterval(callback: Function, time: number): string
