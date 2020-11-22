@@ -1,15 +1,3 @@
-# click(key?: string): void
-$.click = (key = 'left') ->
-  key = $.replace key, '-', ''
-  key = $.replace key, ':', ' '
-  `Click, % key`
-
-# move(point: Point, speed: number = 0): void
-$.move = (point = '', speed = 0) ->
-  unless point
-    throw new Error '$.move: invalid point'
-  `MouseMove, point[1], point[2], speed`
-
 # press(key...: string): void
 $.press = (listInput...) ->
 
@@ -54,10 +42,3 @@ $.press = (listInput...) ->
   for it in _listResult
     _output = "#{_output}{#{it}}"
   `Send, % _output`
-
-# setFixed(fixed?: boolean): void
-$.setFixed = (isFixed = 'Toggle') ->
-  if isFixed != 'Toggle'
-    if isFixed then isFixed = 'On'
-    else isFixed = 'Off'
-  `Winset AlwaysOnTop, % isFixed, A`
