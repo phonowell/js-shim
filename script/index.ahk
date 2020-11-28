@@ -1,50 +1,46 @@
 ﻿global $ := {}
-$.beep := Func("z_45") ; beep(): void
-$.click := Func("z_44") ; click(key?: string): void
-$.delay := Func("z_43") ; delay(time: number, callback: Function): string
-$.exit := Func("z_42") ; exit(): void
-$.findColor := Func("z_41") ; findColor( color: number, start: Point = [0, 0], end: Point = [A_ScreenWidth, A_ScreenHeight], variation = 0 ): Point
-$.findImage := Func("z_40") ; findImage( source: string, start: Point = [0, 0], end: Point = [A_ScreenWidth, A_ScreenHeight], ): Point
-$.formatHotkey := Func("z_39") ; formatHotkey(key: string): string
-$.getColor := Func("z_38") ; getColor(point?: Point): number
-$.getPosition := Func("z_37") ; getPosition(): Point
-$.getState := Func("z_36") ; getState(key: string): string
-$.i := Func("z_35") ; i(message: string): string
-$.includes := Func("z_34")
-$.info := Func("z_33") ; info(message: string, point?: Point): string
-$.length := Func("z_32") ; length(input: string | array | object): number
-$.move := Func("z_31") ; move(point: Point, speed: number = 0): void
-$.now := Func("z_30") ; now(): number
-$.off := Func("z_29") ; off(key: string, callback: Function): void
-$.on := Func("z_28") ; on(key, string, callback: Function): void
-$.open := Func("z_27") ; open(source: string): void
-$.press := Func("z_26") ; press(key...: string): void
-$.random := Func("z_25") ; random(min: number = 0, max: number = 1): number
-$.reload := Func("z_24") ; reload(): void
-$.replace := Func("z_23") ; replace( input: string, searchment: string, replacement: string, limit: number = -1 )
-$.reverse := Func("z_22") ; reverse(input: unknown[]): unknown[]
-$.setFixed := Func("z_21") ; setFixed(fixed?: boolean): void
-$.sleep := Func("z_20") ; sleep(time: number): void
-$.split := Func("z_19") ; split(input: string, delimiter: string): string
-$.suspend := Func("z_18") ; suspend(suspended?: boolean): void
-$.toLowerCase := Func("z_17") ; toLowerCase(input: string): string
-$.toString := Func("z_16") ; toString(input: unknown): string
-$.toUpperCase := Func("z_15") ; toUpperCase(input: string): string
-$.trim := Func("z_14") ; trim(input: string, omitting: string): string
-$.trimEnd := Func("z_13") ; trimEnd(input: string, omitting: string): string
-$.trimStart := Func("z_12") ; trimStart(input: string, omitting: string): string
-$.type := Func("z_11") ; type(input: unknown): 'array' | 'function' | 'number' | 'object' | 'string'
-global alert := Func("z_10") ; alert(message: string): void
-global clearInterval := Func("z_9") ; clearInterval(callback: Function): void
-global clearTimeout := Func("z_8") ; clearTimeout(callback: Function): void
-global Math := {abs: Func("z_7"), ceil: Func("z_6"), floor: Func("z_5"), round: Func("z_4")} ; abs(n: number): number ceil(n: number): number floor(n: number): number round(n: number): number
-global setInterval := Func("z_3") ; setInterval(callback: Function, time: number): string
-global setTimeout := Func("z_2") ; setTimeout(callback: Function, time: number): string
-$.on.Call("1", Func("z_1"))
-z_1() {
-  alert.Call($.getState.Call("2"))
-}
-z_2(callback, time) {
+$.beep := Func("jsShim_44")
+$.click := Func("jsShim_43")
+$.delay := Func("jsShim_42")
+$.exit := Func("jsShim_41")
+$.findColor := Func("jsShim_40")
+$.findImage := Func("jsShim_39")
+$.formatHotkey := Func("jsShim_38")
+$.getColor := Func("jsShim_37")
+$.getPosition := Func("jsShim_36")
+$.getState := Func("jsShim_35")
+$.i := Func("jsShim_34")
+$.includes := Func("jsShim_33")
+$.info := Func("jsShim_32")
+$.length := Func("jsShim_31")
+$.move := Func("jsShim_30")
+$.now := Func("jsShim_29")
+$.off := Func("jsShim_28")
+$.on := Func("jsShim_27")
+$.open := Func("jsShim_26")
+$.press := Func("jsShim_25")
+$.random := Func("jsShim_24")
+$.reload := Func("jsShim_23")
+$.replace := Func("jsShim_22")
+$.reverse := Func("jsShim_21")
+$.setFixed := Func("jsShim_20")
+$.sleep := Func("jsShim_19")
+$.split := Func("jsShim_18")
+$.suspend := Func("jsShim_17")
+$.toLowerCase := Func("jsShim_16")
+$.toString := Func("jsShim_15")
+$.toUpperCase := Func("jsShim_14")
+$.trim := Func("jsShim_13")
+$.trimEnd := Func("jsShim_12")
+$.trimStart := Func("jsShim_11")
+$.type := Func("jsShim_10")
+global alert := Func("jsShim_9")
+global clearInterval := Func("jsShim_8")
+global clearTimeout := Func("jsShim_7")
+global Math := {abs: Func("jsShim_6"), ceil: Func("jsShim_5"), floor: Func("jsShim_4"), round: Func("jsShim_3")}
+global setInterval := Func("jsShim_2")
+global setTimeout := Func("jsShim_1")
+jsShim_1(callback, time) {
   if (($.type.Call(callback)) == "function") {
     callback := callback.Bind()
   }
@@ -61,7 +57,7 @@ z_2(callback, time) {
   SetTimer, % callback, % 0 - time
   return callback
 }
-z_3(callback, time) {
+jsShim_2(callback, time) {
   if (($.type.Call(callback)) == "function") {
     callback := callback.Bind()
   }
@@ -75,35 +71,35 @@ z_3(callback, time) {
   SetTimer, % callback, % time
   return callback
 }
-z_4(n) {
+jsShim_3(n) {
   return Round(n)
 }
-z_5(n) {
+jsShim_4(n) {
   return Floor(n)
 }
-z_6(n) {
+jsShim_5(n) {
   return Ceil(n)
 }
-z_7(n) {
+jsShim_6(n) {
   return Abs(n)
 }
-z_8(callback) {
+jsShim_7(callback) {
   if !(callback) {
     return
   }
   SetTimer, % callback, Delete
 }
-z_9(callback) {
+jsShim_8(callback) {
   if !(callback) {
     return
   }
   SetTimer, % callback, Delete
 }
-z_10(message := "") {
+jsShim_9(message := "") {
   __msg__ := $.toString.Call(message)
   MsgBox, % __msg__
 }
-z_11(input) {
+jsShim_10(input) {
   if input is Number
     return "number"
   if (IsFunc(input)) {
@@ -117,20 +113,20 @@ z_11(input) {
   }
   return "string"
 }
-z_12(input, omitting := " `t") {
+jsShim_11(input, omitting := " `t") {
   return LTrim(input, omitting)
 }
-z_13(input, omitting := " `t") {
+jsShim_12(input, omitting := " `t") {
   return RTrim(input, omitting)
 }
-z_14(input, omitting := " `t") {
+jsShim_13(input, omitting := " `t") {
   return Trim(input, omitting)
 }
-z_15(input) {
+jsShim_14(input) {
   StringUpper, __Result__, input
   return __Result__
 }
-z_16(input) {
+jsShim_15(input) {
   _type := $.type.Call(input)
   if (_type == "array") {
     _result := ""
@@ -147,11 +143,11 @@ z_16(input) {
   }
   return input
 }
-z_17(input) {
+jsShim_16(input) {
   StringLower, __Result__, input
   return __Result__
 }
-z_18(isSuspended := "Toggle") {
+jsShim_17(isSuspended := "Toggle") {
   if (isSuspended != "Toggle") {
     if (isSuspended) {
       isSuspended := "On"
@@ -161,13 +157,13 @@ z_18(isSuspended := "Toggle") {
   }
   Suspend, % isSuspended
 }
-z_19(input, delimiter) {
+jsShim_18(input, delimiter) {
   return StrSplit(input, delimiter)
 }
-z_20(time) {
+jsShim_19(time) {
   Sleep, % time
 }
-z_21(isFixed := "Toggle") {
+jsShim_20(isFixed := "Toggle") {
   if (isFixed != "Toggle") {
     if (isFixed) {
       isFixed := "On"
@@ -177,7 +173,7 @@ z_21(isFixed := "Toggle") {
   }
   Winset AlwaysOnTop, % isFixed, A
 }
-z_22(input) {
+jsShim_21(input) {
   _type := $.type.Call(input)
   if !(_type == "array") {
     throw Exception("$.reverse: invalid type '" . (_type) . "'")
@@ -189,17 +185,17 @@ z_22(input) {
   }
   return _output
 }
-z_23(input, searchment, replacement, limit := -1) {
+jsShim_22(input, searchment, replacement, limit := -1) {
   return StrReplace(input, searchment, replacement, limit)
 }
-z_24() {
+jsShim_23() {
   Reload
 }
-z_25(min := 0, max := 1) {
+jsShim_24(min := 0, max := 1) {
   Random, __Result__, min, max
   return __Result__
 }
-z_26(listInput*) {
+jsShim_25(listInput*) {
   if !($.length.Call(listInput)) {
     throw Exception("$.press: invalid key")
   }
@@ -240,27 +236,27 @@ z_26(listInput*) {
   }
   Send, % _output
 }
-z_27(source) {
+jsShim_26(source) {
   Run, % source
 }
-z_28(key, callback) {
+jsShim_27(key, callback) {
   key := $.formatHotkey.Call(key)
   Hotkey, % key, % callback, On
 }
-z_29(key, callback) {
+jsShim_28(key, callback) {
   key := $.formatHotkey.Call(key)
   Hotkey, % key, % callback, Off
 }
-z_30() {
+jsShim_29() {
   return A_TickCount
 }
-z_31(point := "", speed := 0) {
+jsShim_30(point := "", speed := 0) {
   if !(point) {
     throw Exception("$.move: invalid point")
   }
   MouseMove, point[1], point[2], speed
 }
-z_32(input) {
+jsShim_31(input) {
   _type := $.type.Call(input)
   switch _type {
     case "array": {
@@ -277,7 +273,7 @@ z_32(input) {
     }
   }
 }
-z_33(message, point := "") {
+jsShim_32(message, point := "") {
   if !(message) {
     return message
   }
@@ -288,7 +284,7 @@ z_33(message, point := "") {
   ToolTip, % _msg, % point[1], % point[2]
   return message
 }
-z_34(input, needle) {
+jsShim_33(input, needle) {
   _type := $.type.Call(input)
   if (_type == "string" || _type == "number") {
     return (InStr(input, needle)) > 0
@@ -303,25 +299,25 @@ z_34(input, needle) {
   }
   throw Exception("$.includes: invalid type '" . (_type) . "'")
 }
-z_35(message) {
+jsShim_34(message) {
   $.info.Call("" . ($.now.Call()) . " " . ($.toString.Call(message)) . "")
   return message
 }
-z_36(key) {
+jsShim_35(key) {
   return GetKeyState(key, "P")
 }
-z_37() {
+jsShim_36() {
   MouseGetPos, __x__, __y__
   return [__x__, __y__]
 }
-z_38(point := "") {
+jsShim_37(point := "") {
   if !(point) {
     point := $.getPosition.Call()
   }
   PixelGetColor, __Result__, % point[1], % point[2], RGB
   return __Result__
 }
-z_39(key) {
+jsShim_38(key) {
   _listKey := []
   _key := $.toLowerCase.Call(key)
   _key := $.replace.Call(_key, " ", "")
@@ -373,7 +369,7 @@ z_39(key) {
   }
   return $.replace.Call("" . (_prefix) . "" . ($.trim.Call(_result, " &")) . "", ":", " ")
 }
-z_40(source, start := "", end := "") {
+jsShim_39(source, start := "", end := "") {
   if !(start) {
     start := [0, 0]
   }
@@ -383,7 +379,7 @@ z_40(source, start := "", end := "") {
   ImageSearch __x__, __y__, start[1], start[2], end[1], end[2], % A_ScriptDir . "\\\" . source
   return [__x__, __y__]
 }
-z_41(color, start := "", end := "", variation := 0) {
+jsShim_40(color, start := "", end := "", variation := 0) {
   if !(start) {
     start := [0, 0]
   }
@@ -393,18 +389,41 @@ z_41(color, start := "", end := "", variation := 0) {
   PixelSearch __x__, __y__, start[1], start[2], end[1], end[2], color, variation, Fast RGB
   return [__x__, __y__]
 }
-z_42() {
+jsShim_41() {
   ExitApp
 }
-z_43(time, callback) {
+jsShim_42(time, callback) {
   __timer__ := setTimeout.Call(callback, time)
   return __timer__
 }
-z_44(key := "left") {
+jsShim_43(key := "left") {
   key := $.replace.Call(key, "-", "")
   key := $.replace.Call(key, ":", " ")
   Click, % key
 }
-z_45() {
+jsShim_44() {
   SoundBeep
+}
+
+class Map {
+  __data__ := {}
+  clear := Func("z_4").Bind(this)
+  get := Func("z_3").Bind(this)
+  size := Func("z_2").Bind(this)
+  set := Func("z_1").Bind(this)
+}
+global a := new Map()
+a.set.Call(1, 22)
+alert.Call(a.get.Call(1))
+z_1(this, key, value) {
+  this.__data__[$.toString.Call(key)] := value
+}
+z_2(this) {
+  return $.length.Call(this.__data__)
+}
+z_3(this, key) {
+  return this.__data__[$.toString.Call(key)]
+}
+z_4(this) {
+  this.__data__ := {}
 }

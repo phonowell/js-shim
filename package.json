@@ -1,20 +1,20 @@
 {
   "author": "Mimiko Phonowell <phnonwell@gmail.com>",
   "bugs": {
-    "url": "https://github.com/phonowell/genshin-impact-script/issues"
+    "url": "https://github.com/phonowell/js-shim/issues"
   },
   "dependencies": {
-    "coffee-ahk": "^0.0.3",
-    "fire-keeper": "^0.0.176",
+    "coffee-ahk": "0.0.4",
+    "fire-keeper": "0.0.176",
     "ts-node": "^9.0.0",
-    "typescript": "^4.0.5"
+    "typescript": "^4.1.2"
   },
   "description": "",
   "devDependencies": {
     "@types/lodash": "^4.14.165",
-    "@types/node": "^14.14.7"
+    "@types/node": "^14.14.10"
   },
-  "homepage": "https://github.com/phonowell/genshin-impact-script",
+  "homepage": "https://github.com/phonowell/js-shim",
   "keywords": [
     "ahk",
     "auto hotkey",
@@ -23,15 +23,15 @@
     "genshin impact"
   ],
   "license": "MIT",
-  "name": "genshin-impact-script",
+  "name": "js-shim",
   "repository": {
     "type": "git",
-    "url": "https://github.com/phonowell/genshin-impact-script.git"
+    "url": "https://github.com/phonowell/js-shim.git"
   },
   "scripts": {
     "alice": "ts-node task/alice",
     "build": "npm run alice build"
   },
-  "url": "https://github.com/phonowell/genshin-impact-script",
+  "url": "https://github.com/phonowell/js-shim",
   "version": "0.0.1"
 }
