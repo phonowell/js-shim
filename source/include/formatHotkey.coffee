@@ -2,42 +2,42 @@
 $.formatHotkey = (key) ->
 
   # format
-  _listKey = []
-  _key = $.toLowerCase key
-  _key = $.replace _key, ' ', ''
-  _key = $.replace _key, '-', ''
-  _list = $.split _key, '+'
+  __listkey__ = []
+  __key__ = $.toLowerCase key
+  __key__ = $.replace __key__, ' ', ''
+  __key__ = $.replace __key__, '-', ''
+  _list = $.split __key__, '+'
   for it in _list
-    _listKey.Push it
+    __listkey__.Push it
 
   # unfold
-  _isAlt = false
-  _isCtrl = false
-  _isShift = false
-  _isWin = false
-  _listResult = []
-  for key in _listKey
+  __isAlt__ = false
+  __isCtrl__ = false
+  __isShift__ = false
+  __isWin__ = false
+  __listResult__ = []
+  for key in __listkey__
     if key == 'alt'
-      _isAlt = true
+      __isAlt__ = true
       continue
     if key == 'ctrl'
-      _isCtrl = true
+      __isCtrl__ = true
       continue
     if key == 'shift'
-      _isShift = true
+      __isShift__ = true
       continue
     if key == 'win'
-      _isWin = true
+      __isWin__ = true
       continue
-    _listResult.Push key
+    __listResult__.Push key
 
-  _prefix = ''
-  if _isAlt then _prefix = "#{_prefix}!"
-  if _isCtrl then _prefix = "#{_prefix}^"
-  if _isShift then _prefix = "#{_prefix}+"
-  if _isWin then _prefix = "#{_prefix}#"
+  __prefix__ = ''
+  if __isAlt__ then __prefix__ = "#{__prefix__}!"
+  if __isCtrl__ then __prefix__ = "#{__prefix__}^"
+  if __isShift__ then __prefix__ = "#{__prefix__}+"
+  if __isWin__ then __prefix__ = "#{__prefix__}#"
 
-  _result = ''
-  for it in _listResult
-    _result = "#{_result} & #{it}"
-  return $.replace "#{_prefix}#{$.trim _result, ' &'}", ':', ' '
+  __result__ = ''
+  for it in __listResult__
+    __result__ = "#{__result__} & #{it}"
+  return $.replace "#{__prefix__}#{$.trim __result__, ' &'}", ':', ' '

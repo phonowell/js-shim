@@ -6,39 +6,39 @@ $.press = (listInput...) ->
     throw new Error '$.press: invalid key'
 
   # format
-  _listKey = []
+  __listKey__ = []
   for input in listInput
-    _input = $.toLowerCase input
-    _input = $.replace _input, ' ', ''
-    _input = $.replace _input, '-', ''
-    _list = $.split _input, '+'
-    for it in _list
-      _listKey.Push it
+    __input__ = $.toLowerCase input
+    __input__ = $.replace __input__, ' ', ''
+    __input__ = $.replace __input__, '-', ''
+    __list__ = $.split __input__, '+'
+    for it in __list__
+      __listKey__.Push it
 
   # unfold
-  _listResult = []
-  _len = $.length _listKey
-  for key, i in _listKey
+  __listResult__ = []
+  __len__ = $.length __listKey__
+  for key, i in __listKey__
     # last
-    if i == _len
-      _listResult[i] = $.split key, ':'
+    if i == __len__
+      __listResult__[i] = $.split key, ':'
       continue
     # other
     if $.includes key, ':'
-      _listResult[i] = $.split key, ':'
-      _listResult[_len * 2 - i] = $.split key, ':'
+      __listResult__[i] = $.split key, ':'
+      __listResult__[__len__ * 2 - i] = $.split key, ':'
     else
-      _listResult[i] = [key, 'down']
-      _listResult[_len * 2 - i] = [key, 'up']
+      __listResult__[i] = [key, 'down']
+      __listResult__[__len__ * 2 - i] = [key, 'up']
 
   # alias & join
-  for it, i in _listResult
+  for it, i in __listResult__
     if it[1] == 'win'
       it[1] = 'lwin'
-    _listResult[i] = $.trim "#{it[1]} #{it[2]}"
+    __listResult__[i] = $.trim "#{it[1]} #{it[2]}"
 
   # execute
-  _output = ''
-  for it in _listResult
-    _output = "#{_output}{#{it}}"
-  `Send, % _output`
+  __output__ = ''
+  for it in __listResult__
+    __output__ = "#{__output__}{#{it}}"
+  `Send, % __output__`

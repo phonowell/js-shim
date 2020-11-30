@@ -1,4 +1,4 @@
 # toLowerCase(input: string): string
 $.toLowerCase = (input) ->
-  `StringLower, __Result__, input`
-  return __Result__
+  `StringLower, __result__, input`
+  return __result__

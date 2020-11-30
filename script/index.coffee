@@ -1,18 +1,12 @@
 # include ../source/index.ahk
 
-class Map
+class A
+  value: 1
 
-  __data__: {}
+fn = ->
+  a = new A()
+  a.value = 2
+  return a
 
-  clear: -> @__data__ = {}
-
-  get: (key) -> return @__data__[$.toString key]
-
-  size: -> return $.length @__data__
-
-  set: (key, value) ->
-    @__data__[$.toString key] = value
-
-a = new Map()
-a.set 1, 22
-alert a.get 1
+x = fn()
+alert x.value

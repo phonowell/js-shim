@@ -4,6 +4,6 @@ $.info = (message, point = '') ->
     return message
   unless point
     point = $.getPosition()
-  _msg = $.toString message
-  `ToolTip, % _msg, % point[1], % point[2]`
+  __msg__ = $.toString message
+  `ToolTip, % __msg__, % point[1], % point[2]`
   return message

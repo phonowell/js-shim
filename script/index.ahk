@@ -405,25 +405,14 @@ jsShim_44() {
   SoundBeep
 }
 
-class Map {
-  __data__ := {}
-  clear := Func("z_4").Bind(this)
-  get := Func("z_3").Bind(this)
-  size := Func("z_2").Bind(this)
-  set := Func("z_1").Bind(this)
+class A {
+  value := 1
 }
-global a := new Map()
-a.set.Call(1, 22)
-alert.Call(a.get.Call(1))
-z_1(this, key, value) {
-  this.__data__[$.toString.Call(key)] := value
-}
-z_2(this) {
-  return $.length.Call(this.__data__)
-}
-z_3(this, key) {
-  return this.__data__[$.toString.Call(key)]
-}
-z_4(this) {
-  this.__data__ := {}
+global fn := Func("z_1")
+global x := fn.Call()
+alert.Call(x.value)
+z_1() {
+  a := new A()
+  a.value := 2
+  return a
 }
