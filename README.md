@@ -1,4 +1,4 @@
-# shim-js
+# js-shim
 
 提供`javascript`部分功能模拟。
 
