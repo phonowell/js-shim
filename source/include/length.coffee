@@ -1,6 +1,8 @@
 # length(input: string | array | object): number
 $.length = (input) ->
+
   __type__ = $.type input
+
   switch __type__
     when 'array' then return input.Length()
     when 'object' then return input.Count()
