@@ -204,7 +204,7 @@ jsShim_24(input) {
   __output__ := []
   for i, key in input {
     i := i - 1
-    __output__[__ci_jsShim__.Call(__len__ - i + 1)] := key
+    __output__[__ci_jsShim__.Call(__len__ - 1 - i)] := key
   }
   return __output__
 }
@@ -240,24 +240,24 @@ jsShim_29(listInput*) {
   __len__ := $.length.Call(__listKey__)
   for i, key in __listKey__ {
     i := i - 1
-    if (i == __len__) {
+    if (i == __len__ - 1) {
       __listResult__[__ci_jsShim__.Call(i)] := $.split.Call(key, ":")
       continue
     }
     if ($.includes.Call(key, ":")) {
       __listResult__[__ci_jsShim__.Call(i)] := $.split.Call(key, ":")
-      __listResult__[__ci_jsShim__.Call(__len__ * 2 - i)] := $.split.Call(key, ":")
+      __listResult__[__ci_jsShim__.Call((__len__ - 1) * 2 - i)] := $.split.Call(key, ":")
     } else {
       __listResult__[__ci_jsShim__.Call(i)] := [key, "down"]
-      __listResult__[__ci_jsShim__.Call(__len__ * 2 - i)] := [key, "up"]
+      __listResult__[__ci_jsShim__.Call((__len__ - 1) * 2 - i)] := [key, "up"]
     }
   }
   for i, it in __listResult__ {
     i := i - 1
-    if (it[2] == "win") {
-      it[2] := "lwin"
+    if (it[1] == "win") {
+      it[1] := "lwin"
     }
-    __listResult__[__ci_jsShim__.Call(i)] := $.trim.Call("" . (it[2]) . " " . (it[3]) . "")
+    __listResult__[__ci_jsShim__.Call(i)] := $.trim.Call("" . (it[1]) . " " . (it[2]) . "")
   }
   __output__ := ""
   for __index_for__, it in __listResult__ {
@@ -332,7 +332,7 @@ jsShim_38(input, needle) {
   throw Exception("$.includes: invalid type '" . (__type__) . "'")
 }
 jsShim_39(message) {
-  $.info.Call("" . ($.now.Call()) . " " . ($.toString.Call(message)) . "")
+  $.info.Call("[" . ($.now.Call()) . "] " . ($.toString.Call(message)) . "", [0, 0])
   return message
 }
 jsShim_40(key) {

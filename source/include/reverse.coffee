@@ -8,6 +8,6 @@ $.reverse = (input) ->
   __len__ = $.length input
   __output__ = []
   for key, i in input
-    __output__[__len__ - i + 1] = key
+    __output__[__len__ - 1 - i] = key
 
   return __output__

@@ -20,22 +20,22 @@ $.press = (listInput...) ->
   __len__ = $.length __listKey__
   for key, i in __listKey__
     # last
-    if i == __len__
+    if i == __len__ - 1
       __listResult__[i] = $.split key, ':'
       continue
     # other
     if $.includes key, ':'
       __listResult__[i] = $.split key, ':'
-      __listResult__[__len__ * 2 - i] = $.split key, ':'
+      __listResult__[(__len__ - 1) * 2 - i] = $.split key, ':'
     else
       __listResult__[i] = [key, 'down']
-      __listResult__[__len__ * 2 - i] = [key, 'up']
+      __listResult__[(__len__ - 1) * 2 - i] = [key, 'up']
 
   # alias & join
   for it, i in __listResult__
-    if it[1] == 'win'
-      it[1] = 'lwin'
-    __listResult__[i] = $.trim "#{it[1]} #{it[2]}"
+    if it[0] == 'win'
+      it[0] = 'lwin'
+    __listResult__[i] = $.trim "#{it[0]} #{it[1]}"
 
   # execute
   __output__ = ''
