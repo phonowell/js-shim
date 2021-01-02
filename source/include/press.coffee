@@ -38,7 +38,7 @@ $.press = (listInput...) ->
     __listResult__[i] = $.trim "#{it[0]} #{it[1]}"
 
   # execute
-  __output__ = ''
+  __output_as_string__ = ''
   for it in __listResult__
-    __output__ = "#{__output__}{#{it}}"
-  `Send, % __output__`
+    __output_as_string__ = "#{__output_as_string__}{#{it}}"
+  `Send, % __output_as_string__`

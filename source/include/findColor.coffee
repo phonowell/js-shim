@@ -6,14 +6,14 @@
 # ): Point
 $.findColor = (
   color
-  start = '', end = ''
+  start = [], end = []
   variation = 0
 ) ->
 
-  unless start
+  unless $.length start
     start = [0, 0]
 
-  unless end
+  unless $.length end
     end = [A_ScreenWidth, A_ScreenHeight]
 
   `PixelSearch __x__, __y__, start[1], start[2], end[1], end[2], color, variation, Fast RGB`

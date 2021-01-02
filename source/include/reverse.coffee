@@ -6,8 +6,8 @@ $.reverse = (input) ->
     throw new Error "$.reverse: invalid type '#{__type__}'"
 
   __len__ = $.length input
-  __output__ = []
+  __output_as_array__ = []
   for key, i in input
-    __output__[__len__ - 1 - i] = key
+    __output_as_array__[__len__ - 1 - i] = key
 
-  return __output__
+  return __output_as_array__
