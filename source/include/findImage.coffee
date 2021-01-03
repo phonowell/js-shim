@@ -5,13 +5,13 @@
 # ): Point
 $.findImage = (
   source
-  start = [], end = []
+  start = '', end = ''
 ) ->
 
-  unless $.length start
+  unless start
     start = [0, 0]
 
-  unless $.length end
+  unless end
     end = [A_ScreenWidth, A_ScreenHeight]
 
   `ImageSearch __x__, __y__, start[1], start[2], end[1], end[2], % A_ScriptDir . "\\\" . source`

@@ -4,8 +4,8 @@
     "url": "https://github.com/phonowell/js-shim/issues"
   },
   "dependencies": {
-    "coffee-ahk": "^0.0.25",
-    "fire-keeper": "^0.0.184",
+    "coffee-ahk": "0.0.26",
+    "fire-keeper": "0.0.185",
     "ts-node": "^9.1.1",
     "typescript": "^4.1.3"
   },
