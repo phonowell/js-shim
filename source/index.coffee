@@ -1,4 +1,4 @@
 $ = {}
 
-# include include/*
-# include include/js/*
+import 'include/*'
+import 'include/js/*'

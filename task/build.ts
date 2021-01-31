@@ -1,12 +1,15 @@
-import compile_ from 'coffee-ahk'
+import $ from 'fire-keeper'
+import transpile from 'coffee-ahk'
 
 // function
 
 async function main_(): Promise<void> {
 
-  await compile_('./source/index.coffee', {
+  await transpile('./source/index.coffee', {
     salt: 'jsShim'
   })
+  await $.remove_('./dist')
+  await $.copy_('./source/index.ahk', './dist')
 }
 
 // export
