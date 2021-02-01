@@ -6,7 +6,7 @@ import transpile from 'coffee-ahk'
 async function main_(): Promise<void> {
 
   await transpile('./source/index.coffee', {
-    salt: 'jsShim'
+    salt: 'jsShim',
   })
   await $.remove_('./dist')
   await $.copy_('./source/index.ahk', './dist')

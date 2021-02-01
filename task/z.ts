@@ -1,11 +1,11 @@
-import compile_ from 'coffee-ahk'
+import c2a from 'coffee-ahk'
 
 // function
 
-async function main_(): Promise<void>{
+async function main_(): Promise<void> {
 
-  await compile_('./script/index.coffee',{
-    salt: 'z'
+  await c2a('./script/index.coffee', {
+    salt: 'z',
   })
 }
 
