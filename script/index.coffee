@@ -1,3 +1,4 @@
-# include ../source/index
+import '../source/index.ahk'
 
-alert $.reverse [1, 2, 3]
+$.on 'alt + n', ->
+  alert $.reverse [1, 2, 3]

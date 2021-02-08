@@ -272,7 +272,7 @@ jsShim_31(source) {
   Run, % source
 }
 jsShim_32(key, callback) {
-  key := $.formatHotkey.Call(key)
+  key := "$" . ($.formatHotkey.Call(key)) . ""
   Hotkey, % key, % callback, On
 }
 jsShim_33(key, callback) {
