@@ -1,2 +1,4 @@
 # getState(key: string): string
-$.getState = (key) -> return GetKeyState key, 'P'
+$.getState = (key) ->
+  key = $.formatHotkey key
+  return GetKeyState key, 'P'

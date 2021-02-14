@@ -6,10 +6,6 @@ $.debounce = (time, callback) ->
 
   __index_debounce__++
 
-  return (
-    index = __index_debounce__
-    time = time
-    callback = callback
-  ) ->
+  return (index = __index_debounce__) ->
     clearTimeout __timer_debounce__[index]
     __timer_debounce__[index] = setTimeout callback, time
